@@ -1,0 +1,11 @@
+BasedOnStyle: Google
+---
+Language:                               Cpp
+Cpp11BracedListStyle:                   true
+Standard:                               Cpp11
+AllowShortFunctionsOnASingleLine:       None
+DerivePointerAlignment:                 false
+PointerAlignment:                       Left
+CommentPragmas: '^ NOLINT'
+ColumnLimit:     120
+TabWidth:        2
