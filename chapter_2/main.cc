@@ -11,7 +11,7 @@ bool CheckResult(float* result, int n) {
 }
 
 int main(int argc, const char* argv[]) {
-  constexpr int n = 99999999;
+  constexpr int n = 999999999;
   float* h_A = new float[n];
   float* h_B = new float[n];
   float* h_C = new float[n];
