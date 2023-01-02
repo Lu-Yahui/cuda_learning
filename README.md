@@ -9,3 +9,4 @@ Code snippet for Programming Massively Parallel Processors: A Hands-on
 # Chapter 3
 - RGB to grayscale
 - Image blur
+- Query device properties

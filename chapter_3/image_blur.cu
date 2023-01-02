@@ -68,3 +68,33 @@ void BlurGpu(unsigned char* h_out, unsigned char* h_in, int width, int height, i
   cudaFree(d_out);
   cudaFree(d_in);
 }
+
+void BlurCpu(unsigned char* h_out, unsigned char* h_in, int width, int height, int half_patch_size) {
+  for (int row = 0; row < height; ++row) {
+    for (int col = 0; col < width; ++col) {
+      int pixel_val_r = 0;
+      int pixel_val_g = 0;
+      int pixel_val_b = 0;
+      int pixel_num = 0;
+      for (int blur_row = -half_patch_size; blur_row < half_patch_size + 1; ++blur_row) {
+        for (int blur_col = -half_patch_size; blur_col < half_patch_size + 1; ++blur_col) {
+          int curr_row = row + blur_row;
+          int curr_col = col + blur_col;
+          if (curr_row > -1 && curr_row < height && curr_col > -1 && curr_col < width) {
+            int offset = 3 * (curr_row * width + curr_col);
+            pixel_val_r += h_in[offset];
+            pixel_val_g += h_in[offset + 1];
+            pixel_val_b += h_in[offset + 2];
+            pixel_num++;
+          }
+        }
+      }
+
+      // write back to out
+      int out_offset = 3 * (row * width + col);
+      h_out[out_offset] = static_cast<unsigned char>(pixel_val_r / pixel_num);
+      h_out[out_offset + 1] = static_cast<unsigned char>(pixel_val_g / pixel_num);
+      h_out[out_offset + 2] = static_cast<unsigned char>(pixel_val_b / pixel_num);
+    }
+  }
+}

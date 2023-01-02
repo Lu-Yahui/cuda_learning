@@ -31,3 +31,11 @@ cc_binary(
         "//common:test_image",
     ],
 )
+
+cc_binary(
+    name = "query_device_property_main",
+    srcs = ["query_device_property_main.cc"],
+    deps = [
+        "@local_cuda//:cuda_runtime"
+    ],
+)
