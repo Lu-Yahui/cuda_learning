@@ -9,7 +9,7 @@ cuda_library(
 )
 
 cc_binary(
-    name = "main",
-    srcs = ["main.cc"],
+    name = "vector_addition_main",
+    srcs = ["vector_addition_main.cc"],
     deps = [":vector_addition"],
 )

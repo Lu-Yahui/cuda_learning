@@ -36,6 +36,7 @@ void VecAddGpu(float* h_A, float* h_B, float* h_C, int n) {
   float* d_A;
   float* d_B;
   float* d_C;
+  // static_cast does NOT work
   cudaMalloc((void**)&d_A, size);
   cudaMalloc((void**)&d_B, size);
   cudaMalloc((void**)&d_C, size);
@@ -47,6 +48,11 @@ void VecAddGpu(float* h_A, float* h_B, float* h_C, int n) {
   // kernel launch
   int block_size = static_cast<int>(std::ceil(n / 256.0));
   VecAddKernel<<<block_size, 256>>>(d_A, d_B, d_C, n);
+
+  // or launch kernel with:
+  // dim3 dim_grid(block_size, 1, 1);
+  // dim3 dim_block(256, 1, 1);
+  // VecAddKernel<<<dim_grid, dim_block>>>(d_A, d_B, d_C, n);
 
   // copy result from device memory to host memory
   cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
