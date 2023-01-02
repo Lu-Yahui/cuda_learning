@@ -8,3 +8,4 @@ Code snippet for Programming Massively Parallel Processors: A Hands-on
 - vector addition
 # Chapter 3
 - RGB to grayscale
+- Image blur

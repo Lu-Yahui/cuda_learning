@@ -16,3 +16,18 @@ cc_binary(
         "//common:test_image",
     ],
 )
+
+cuda_library(
+    name = "image_blur",
+    srcs = ["image_blur.cu"],
+    hdrs = ["image_blur.h"],
+)
+
+cc_binary(
+    name = "image_blur_main",
+    srcs = ["image_blur_main.cc"],
+    deps = [
+        ":image_blur",
+        "//common:test_image",
+    ],
+)
