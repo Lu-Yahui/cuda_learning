@@ -4,9 +4,11 @@ Code snippet for Programming Massively Parallel Processors: A Hands-on
 
 ---
 
-# Chapter 2
+# Chapter 2: Data Parallel Computing
 - vector addition
-# Chapter 3
+# Chapter 3: Scalable Parallel Execution
 - RGB to grayscale
 - Image blur
 - Query device properties
+# Chapter 4: Memory and Data Locality
+- Simple square matrix multiplication
