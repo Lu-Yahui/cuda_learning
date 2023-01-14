@@ -35,6 +35,14 @@ int main(int argc, const char* argv[]) {
     std::cout << "SimpleMatrixMulGpu: " << duration.count() << "us." << std::endl;
   }
 
+  {
+    auto start = std::chrono::high_resolution_clock::now();
+    TiledMatrixMulGpu(M, N, P, width);
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+    std::cout << "SimpleMatrixMulGpu: " << duration.count() << "us." << std::endl;
+  }
+
   delete[] M;
   delete[] N;
   delete[] P;
