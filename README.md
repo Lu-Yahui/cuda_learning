@@ -13,3 +13,5 @@ Code snippet for Programming Massively Parallel Processors: A Hands-on
 # Chapter 4: Memory and Data Locality
 - Simple square matrix multiplication
 - Tiled square matrix multiplication
+# Chapter 5: Performance Considerations
+- Sum reduction
