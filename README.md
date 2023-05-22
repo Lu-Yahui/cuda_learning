@@ -15,3 +15,4 @@ Code snippet for Programming Massively Parallel Processors: A Hands-on
 - Tiled square matrix multiplication
 # Chapter 5: Performance Considerations
 - Sum reduction
+# Chapter 7: Parallel Patterns: convolution

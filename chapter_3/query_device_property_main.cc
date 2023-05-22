@@ -14,6 +14,8 @@ int main(int argc, const char* argv[]) {
     cudaGetDeviceProperties(&dev_prop, i);
 
     std::cout << "### Device " << i << " ###" << std::endl;
+    std::cout << "- L2 cache size: " << dev_prop.l2CacheSize << std::endl;
+    std::cout << "- shared mem per block: " << dev_prop.sharedMemPerBlock << std::endl;
     std::cout << "- streaming multiprocessor count: " << dev_prop.multiProcessorCount << std::endl;
     std::cout << "- max blocks per multiprocessor: " << dev_prop.maxBlocksPerMultiProcessor << std::endl;
     std::cout << "- clock rate: " << dev_prop.clockRate << std::endl;
@@ -23,6 +25,7 @@ int main(int argc, const char* argv[]) {
     std::cout << "- max grid size(x, y, z): (" << dev_prop.maxGridSize[0] << ", " << dev_prop.maxGridSize[1] << ", "
               << dev_prop.maxGridSize[2] << ")" << std::endl;
     std::cout << "- wrap size: " << dev_prop.warpSize << std::endl;
+    std::cout << "- total const mem: " << dev_prop.totalConstMem << std::endl;
     std::cout << "..." << std::endl;
   }
 
